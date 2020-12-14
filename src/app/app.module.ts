@@ -3,10 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SearchComponent } from './search/search.component';
+import { SearchLayoutComponent } from './search-layout/search-layout.component';
+import { RecentSearchesComponent } from './recent-searches/recent-searches.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchComponent,
+    SearchLayoutComponent,
+    RecentSearchesComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
