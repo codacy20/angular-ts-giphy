@@ -131,13 +131,6 @@
     },
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
-    "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-pascal-case"
-      ]
-    },
     "whitespace": {
       "options": [
         "check-branch",

@@ -5,6 +5,11 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./search/search.module').then(m => m.SearchModule)
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    loadChildren: () => import('./search/search.module').then(m => m.SearchModule)
   }
 ];
 
