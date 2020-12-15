@@ -5,6 +5,7 @@ import { RecentSearchesComponent } from './recent-searches/recent-searches.compo
 import { SearchResultComponent } from './result/search-result.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { RouterModule } from '@angular/router';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { RouterModule } from '@angular/router';
     SearchLayoutComponent,
     RecentSearchesComponent,
     SearchResultComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
