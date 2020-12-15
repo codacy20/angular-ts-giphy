@@ -1,5 +1,5 @@
 .container {
-  padding: 35px;
+  padding: 35px 35px 16px 35px;
   h4 {
     font-family: Muli;
     font-weight: bold;
@@ -9,6 +9,7 @@
     color: #4b5fa0;
     opacity: 0.5;
     padding: 0 15px;
+    margin-bottom: 10px;
   }
   .recent-item {
     height: 52px;
