@@ -1,24 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
-import { SearchLayoutComponent } from './search-layout/search-layout.component';
-import { RecentSearchesComponent } from './recent-searches/recent-searches.component';
-import { ResultComponent } from './result/result.component';
+import { SearchModule } from './search/search.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
-    SearchLayoutComponent,
-    RecentSearchesComponent,
-    ResultComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
