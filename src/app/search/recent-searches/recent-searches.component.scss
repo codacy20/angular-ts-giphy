@@ -1,0 +1,36 @@
+.container {
+  padding: 35px;
+  h4 {
+    font-family: Muli;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #4b5fa0;
+    opacity: 0.5;
+    padding: 0 15px;
+  }
+  .recent-item {
+    height: 52px;
+    display: flex;
+    padding: 0 15px;
+    align-items: center;
+    border-radius: 5px;
+    #ico {
+      font-size: 20px;
+      color: #0f0f2b;
+    }
+    .title {
+      margin-left: 5px;
+      font-family: Muli;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 20px;
+      color: #0f0f2b;
+    }
+  }
+  .recent-item:hover {
+    background: #ebeaf3;
+  }
+}
