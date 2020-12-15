@@ -1,10 +1,10 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+import { Subject } from 'rxjs';
 import { environment } from '../../environments/environment';
-import SearchResponseModel from '../common/models/search-response.model';
-import { Subject } from 'rxjs/internal/Subject';
-
+import SearchResponseModel, { PaginationModel } from '../common/models/search-response.model';
+import ImageModel from '../common/models/Image.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +12,23 @@ import { Subject } from 'rxjs/internal/Subject';
 export class GiphyService implements OnDestroy {
 
   public recentSearch = new Subject<string>();
+  public imageSearchResults = new Subject<ImageModel>();
+  public pagination = new Subject<PaginationModel>();
   public listrecentSearch: string[] = [];
+  public listImages: ImageModel[] = [];
 
   constructor(private http: HttpClient) {
     this.recentSearch.subscribe((input: string) => {
       this.listrecentSearch.push(input);
     });
+    this.imageSearchResults
+      .subscribe((input: ImageModel) => {
+        if (this.listImages.length !== 3) { this.listImages.push(input); }
+        else {
+          this.listImages = [];
+          this.listImages.push(input);
+        }
+      });
   }
 
   getGiphyImages(query: string, limit: number, offset: number): Observable<SearchResponseModel> {
@@ -26,5 +37,6 @@ export class GiphyService implements OnDestroy {
 
   ngOnDestroy(): void {
     this.recentSearch.unsubscribe();
+    this.imageSearchResults.unsubscribe();
   }
 }

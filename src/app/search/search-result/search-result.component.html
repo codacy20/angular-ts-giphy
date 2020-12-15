@@ -1,0 +1,8 @@
+<div class="container">
+    <ng-container *ngFor="let item of listrecentSearchLocal; let i = index">
+        <div class="tile">
+            <img src={{item.images.fixed_width.webp}} class="img" alt="">
+            <span class="title">{{item.title}}</span>
+        </div>
+    </ng-container>
+</div>

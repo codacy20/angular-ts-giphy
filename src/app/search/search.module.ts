@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { SearchLayoutComponent } from './search-layout/search-layout.component';
 import { RecentSearchesComponent } from './recent-searches/recent-searches.component';
-import { SearchResultComponent } from './result/search-result.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { RouterModule } from '@angular/router';
 import { PaginationComponent } from './pagination/pagination.component';

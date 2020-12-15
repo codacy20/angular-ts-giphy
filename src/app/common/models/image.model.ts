@@ -14,7 +14,7 @@ export class ImageSpecification {
     private _height: number;
     private _width: number;
     private _size: number;
-    private _url: string;
+    private _webp: string;
 
     public get height(): number {
         return this._height;
@@ -35,9 +35,9 @@ export class ImageSpecification {
         this._size = value;
     }
     public get url(): string {
-        return this._url;
+        return this._webp;
     }
     public set url(value: string) {
-        this._url = value;
+        this._webp = value;
     }
 }

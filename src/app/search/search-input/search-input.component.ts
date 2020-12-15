@@ -3,8 +3,8 @@ import { FormControl } from '@angular/forms';
 import SearchResponseModel from 'src/app/common/models/search-response.model';
 import { GiphyService } from '../giphy.service';
 import { interval } from 'rxjs';
-import { debounce } from 'rxjs/operators';
-import { filter } from 'rxjs/operators';
+import { debounce, filter } from 'rxjs/operators';
+import ImageModel from 'src/app/common/models/Image.model';
 
 
 @Component({
@@ -33,6 +33,10 @@ export class SearchInputComponent implements OnInit, OnDestroy {
   search(input: string): void {
     this.giphyService.getGiphyImages(input, 3, 0).subscribe((response: SearchResponseModel) => {
       this.giphyService.recentSearch.next(input);
+      response.data.forEach((item: ImageModel) => {
+        this.giphyService.imageSearchResults.next(item);
+        this.giphyService.pagination.next(response.pagination);
+      });
     });
   }
 
