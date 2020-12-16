@@ -1,14 +1,18 @@
 <div class="container">
     <div class="arrow" [ngClass]="{'show': pagination.offset !== 0}">
-        <span class="material-icons" (click)="pageEvent(0)">
+        <span class="material-icons" (click)="prevPage()">
             keyboard_arrow_left
         </span>
     </div>
-    <div class="box selected">
-        <span>1</span>
-    </div>
+    <ng-container *ngFor="let item of availablePages; let i = index">
+        <div class="box" *ngIf="currentPage === item && pagination.offset + 3 >= pagination.total_count">{{item -2 }}</div>
+        <div class="box" *ngIf="item - 1 !== 0 && currentPage === item">{{item -1 }}</div>
+        <div class="box" *ngIf="currentPage === item" [ngClass]="{'selected' : currentPage === item }">{{item}}</div>
+        <div class="box" *ngIf="currentPage === item && pagination.offset + 3 < pagination.total_count">{{item +1}}</div>
+        <div class="box" *ngIf="item - 1 === 0 && currentPage === item && pagination.offset + 3 < pagination.total_count">{{item +2}}</div>
+    </ng-container>
     <div class="arrow" [ngClass]="{'show': pagination.offset+3 < pagination.total_count}">
-        <span class="material-icons" (click)="pageEvent(1)">
+        <span class="material-icons" (click)="nextPage()">
             keyboard_arrow_right
         </span>
     </div>
