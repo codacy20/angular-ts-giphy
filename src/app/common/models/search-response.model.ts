@@ -1,4 +1,4 @@
-import ImageModel from "./Image.model";
+import {ImageModel} from "./Image.model";
 
 export default class SearchResponseModel {
   data: ImageModel[];

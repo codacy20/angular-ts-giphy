@@ -1,4 +1,4 @@
-export default class ImageModel {
+export class ImageModel {
   url: string;
   rating: string;
   title: string;

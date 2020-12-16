@@ -6,7 +6,7 @@ import { environment } from "../../environments/environment";
 import SearchResponseModel, {
   PaginationModel,
 } from "../common/models/search-response.model";
-import ImageModel from "../common/models/Image.model";
+import {ImageModel} from "../common/models/Image.model";
 
 @Injectable({
   providedIn: "root",

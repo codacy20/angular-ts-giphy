@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import ImageModel from "src/app/common/models/Image.model";
+import { ImageModel } from "src/app/common/models/Image.model";
 import { GiphyService } from "../giphy.service";
 
 @Component({
@@ -10,7 +10,7 @@ import { GiphyService } from "../giphy.service";
 export class SearchResultComponent implements OnInit, OnDestroy {
   listrecentSearchLocal: ImageModel[] = [];
 
-  constructor(private giphyService: GiphyService) {}
+  constructor(private giphyService: GiphyService) { }
 
   ngOnInit(): void {
     this.giphyService.imageSearchResults.subscribe(() => {
