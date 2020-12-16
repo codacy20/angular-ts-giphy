@@ -3,7 +3,7 @@ import { asyncData } from "./async-observable-helpers";
 import { GiphyService } from "./giphy.service";
 import SearchResponseModel from "../common/models/search-response.model";
 
-describe("HeroesService (with spies)", () => {
+describe("GiphyService (with spies)", () => {
   // #docregion test-with-spies
   let httpClientSpy: { get: jasmine.Spy };
   let giphyService: GiphyService;
@@ -13,8 +13,8 @@ describe("HeroesService (with spies)", () => {
     giphyService = new GiphyService(httpClientSpy as any);
   });
 
-  it("should return expected heroes (HttpClient called once)", () => {
-    const expectedHeroes: SearchResponseModel = {
+  it("should return expected data (HttpClient called once)", () => {
+    const searchResponseModel: SearchResponseModel = {
       data: [
         {
           url: "",
@@ -30,19 +30,19 @@ describe("HeroesService (with spies)", () => {
       },
     };
 
-    httpClientSpy.get.and.returnValue(asyncData(expectedHeroes));
+    httpClientSpy.get.and.returnValue(asyncData(searchResponseModel));
 
     giphyService
       .getGiphyImages("", 1, 1)
       .subscribe(
-        (heroes) => expect(heroes).toEqual(expectedHeroes, "expected heroes"),
+        (searchRes) => expect(searchRes).toEqual(searchResponseModel, "expected result"),
         fail
       );
     expect(httpClientSpy.get.calls.count()).toBe(1, "one call");
   });
 
-  it("should return a single user", () => {
-    const expectedHeroes: SearchResponseModel = {
+  it("should return a single gif", () => {
+    const searchResponseModel: SearchResponseModel = {
       data: [
         {
           url: "",
@@ -58,12 +58,12 @@ describe("HeroesService (with spies)", () => {
       },
     };
     let response;
-    spyOn(giphyService, "getGiphyImages").and.returnValue(of(expectedHeroes));
+    spyOn(giphyService, "getGiphyImages").and.returnValue(of(searchResponseModel));
 
-    giphyService.getGiphyImages("2", 1, 1).subscribe((res) => {
+    giphyService.getGiphyImages("dogs", 1, 1).subscribe((res) => {
       response = res;
     });
 
-    expect(response).toEqual(expectedHeroes);
+    expect(response).toEqual(searchResponseModel);
   });
 });
