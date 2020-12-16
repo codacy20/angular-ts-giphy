@@ -6,7 +6,7 @@ import { environment } from "../../environments/environment";
 import SearchResponseModel, {
   PaginationModel,
 } from "../common/models/search-response.model";
-import {ImageModel} from "../common/models/Image.model";
+import { ImageModel } from "../common/models/image.model";
 
 @Injectable({
   providedIn: "root",
@@ -18,7 +18,7 @@ export class GiphyService {
   public listrecentSearch: string[] = [];
   public listImages: ImageModel[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getGiphyImages(
     query: string,

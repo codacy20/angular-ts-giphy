@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ImageModel } from "src/app/common/models/Image.model";
+import { ImageModel } from "src/app/common/models/image.model";
 import { GiphyService } from "../giphy.service";
 
 @Component({
