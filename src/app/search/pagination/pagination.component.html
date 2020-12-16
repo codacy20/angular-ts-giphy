@@ -1,17 +1,15 @@
 <div class="container">
-    <span class="material-icons arrow">
-        keyboard_arrow_left
-    </span>
+    <div class="arrow" [ngClass]="{'show': pagination.offset !== 0}">
+        <span class="material-icons" (click)="pageEvent(0)">
+            keyboard_arrow_left
+        </span>
+    </div>
     <div class="box selected">
         <span>1</span>
     </div>
-    <div class="box">
-        <span>2</span>
+    <div class="arrow" [ngClass]="{'show': pagination.offset+3 < pagination.total_count}">
+        <span class="material-icons" (click)="pageEvent(1)">
+            keyboard_arrow_right
+        </span>
     </div>
-    <div class="box">
-        <span>3</span>
-    </div>
-    <span class="material-icons arrow show" (click)="pageEvent()">
-        keyboard_arrow_right
-    </span>
 </div>

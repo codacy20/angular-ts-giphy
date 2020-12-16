@@ -11,8 +11,9 @@ import { GiphyService } from '../giphy.service';
 export class PaginationComponent implements OnDestroy {
 
   response: SearchResponseModel;
-  pagination: PaginationModel;
+  pagination: PaginationModel = { count: 0, offset: 0, total_count: 0 };
   input: string;
+  numbers: number[] = [];
 
   constructor(private giphyService: GiphyService) {
     this.giphyService.pagination.subscribe((pagination: PaginationModel) => {
@@ -23,13 +24,13 @@ export class PaginationComponent implements OnDestroy {
     });
   }
 
-  pageEvent(): void {
-    this.giphyService.getGiphyImages(this.input, 3, this.pagination.offset + 3).subscribe((response: SearchResponseModel) => {
+  pageEvent(input: number): void {
+    let direction = 3;
+    if (!input) { direction = -3; }
+    this.giphyService.getGiphyImages(this.input, 3, this.pagination.offset + direction).subscribe((response: SearchResponseModel) => {
       this.giphyService.pagination.next(response.pagination);
-      response.data.forEach((item: ImageModel) => {
-        this.giphyService.imageSearchResults.next(item);
-        this.giphyService.pagination.next(response.pagination);
-      });
+      this.giphyService.listImages = response.data;
+      this.giphyService.imageSearchResults.next();
     });
   }
 

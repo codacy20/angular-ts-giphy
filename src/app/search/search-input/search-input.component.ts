@@ -32,11 +32,11 @@ export class SearchInputComponent implements OnInit, OnDestroy {
 
   search(input: string): void {
     this.giphyService.getGiphyImages(input, 3, 0).subscribe((response: SearchResponseModel) => {
+      this.giphyService.listImages = response.data;
+      this.giphyService.listrecentSearch.push(input);
       this.giphyService.recentSearch.next(input);
-      response.data.forEach((item: ImageModel) => {
-        this.giphyService.imageSearchResults.next(item);
-        this.giphyService.pagination.next(response.pagination);
-      });
+      this.giphyService.imageSearchResults.next();
+      this.giphyService.pagination.next(response.pagination);
     });
   }
 

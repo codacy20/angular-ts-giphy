@@ -24,9 +24,9 @@
     }
   }
   .arrow {
-    font-size: 35px;
     cursor: pointer;
     visibility: hidden;
+    font-size: 35px;
     &.show {
       visibility: visible;
     }

@@ -17,19 +17,7 @@ export class GiphyService implements OnDestroy {
   public listrecentSearch: string[] = [];
   public listImages: ImageModel[] = [];
 
-  constructor(private http: HttpClient) {
-    this.recentSearch.subscribe((input: string) => {
-      this.listrecentSearch.push(input);
-    });
-    this.imageSearchResults
-      .subscribe((input: ImageModel) => {
-        if (this.listImages.length !== 3) { this.listImages.push(input); }
-        else {
-          this.listImages = [];
-          this.listImages.push(input);
-        }
-      });
-  }
+  constructor(private http: HttpClient) { }
 
   getGiphyImages(query: string, limit: number, offset: number): Observable<SearchResponseModel> {
     return this.http.get<SearchResponseModel>(`${environment.baseurl}?api_key=${environment.apikey}&q=${query}&limit=${limit}&offset=${offset}`);
