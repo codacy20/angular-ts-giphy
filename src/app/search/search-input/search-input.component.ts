@@ -3,9 +3,8 @@ import { FormControl } from '@angular/forms';
 import SearchResponseModel from 'src/app/common/models/search-response.model';
 import { GiphyService } from '../giphy.service';
 import { interval } from 'rxjs';
-import { debounce, filter } from 'rxjs/operators';
-import ImageModel from 'src/app/common/models/Image.model';
-
+import { debounce, filter, map } from 'rxjs/operators';
+import { CensorSensor } from 'censor-sensor';
 
 @Component({
   selector: 'app-search-input',
@@ -18,9 +17,19 @@ export class SearchInputComponent implements OnInit, OnDestroy {
   response: SearchResponseModel;
 
   constructor(private giphyService: GiphyService) {
+    const censor = new CensorSensor();
     this.searchControl.valueChanges
       .pipe(filter(input => input))
       .pipe(debounce(() => interval(1200)))
+      .pipe(
+        filter(input => {
+          if (censor.isProfane(input)) {
+            alert('Be classy! No profanity, instead check out awesome bear gifs');
+          }
+          else {
+            return input;
+          }
+        }))
       .subscribe((input: string) => {
         this.search(input);
       });
