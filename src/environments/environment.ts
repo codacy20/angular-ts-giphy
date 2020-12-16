@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apikey: 'BlTazuD6qCEuKC8Kf08b4yHpa3zQxaMR',
-  baseurl: 'https://api.giphy.com/v1/gifs/search'
+  apikey: "BlTazuD6qCEuKC8Kf08b4yHpa3zQxaMR",
+  baseurl: "https://api.giphy.com/v1/gifs/search",
 };
 
 /*

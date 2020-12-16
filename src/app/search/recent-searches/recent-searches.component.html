@@ -1,9 +1,10 @@
 <div class="container">
-    <h4>recent searches</h4>
-    <div class="recent-item" *ngFor="let item of listrecentSearchLocal; let i = index">
-        <span class="material-icons" id="ico">
-            query_builder
-        </span>
-        <span class="title">{{item}}</span>
-    </div>
+  <h4>recent searches</h4>
+  <div
+    class="recent-item"
+    *ngFor="let item of listrecentSearchLocal; let i = index"
+  >
+    <span class="material-icons" id="ico"> query_builder </span>
+    <span class="title">{{ item }}</span>
+  </div>
 </div>

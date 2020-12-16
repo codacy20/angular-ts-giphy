@@ -1,20 +1,19 @@
-import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GiphyService } from '../giphy.service';
+import { HttpClientModule } from "@angular/common/http";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { GiphyService } from "../giphy.service";
 
-import { SearchResultComponent } from './search-result.component';
+import { SearchResultComponent } from "./search-result.component";
 
-describe('ResultComponent', () => {
+describe("ResultComponent", () => {
   let component: SearchResultComponent;
   let fixture: ComponentFixture<SearchResultComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchResultComponent ],
+      declarations: [SearchResultComponent],
       imports: [HttpClientModule],
-      providers: [GiphyService]
-    })
-    .compileComponents();
+      providers: [GiphyService],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -23,7 +22,7 @@ describe('ResultComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,19 +1,60 @@
 <div class="container">
-    <div class="arrow" [ngClass]="{'show': pagination.offset !== 0}">
-        <span class="material-icons" (click)="prevPage()">
-            keyboard_arrow_left
-        </span>
+  <div class="arrow" [ngClass]="{ show: pagination.offset !== 0 }">
+    <span class="material-icons" (click)="prevPage()">
+      keyboard_arrow_left
+    </span>
+  </div>
+  <ng-container *ngFor="let item of availablePages; let i = index">
+    <div
+      class="box"
+      *ngIf="
+        currentPage === item && pagination.offset + 3 >= pagination.total_count
+      "
+      (click)="prevPage()"
+    >
+      {{ item - 2 }}
     </div>
-    <ng-container *ngFor="let item of availablePages; let i = index">
-        <div class="box" *ngIf="currentPage === item && pagination.offset + 3 >= pagination.total_count" (click)="prevPage()">{{item -2 }}</div>
-        <div class="box" *ngIf="item - 1 !== 0 && currentPage === item" (click)="prevPage()">{{item -1 }}</div>
-        <div class="box" *ngIf="currentPage === item" [ngClass]="{'selected' : currentPage === item }">{{item}}</div>
-        <div class="box" *ngIf="currentPage === item && pagination.offset + 3 < pagination.total_count" (click)="nextPage()">{{item +1}}</div>
-        <div class="box" *ngIf="item - 1 === 0 && currentPage === item && pagination.offset + 3 < pagination.total_count" (click)="nextPage()">{{item +2}}</div>
-    </ng-container>
-    <div class="arrow" [ngClass]="{'show': pagination.offset+3 < pagination.total_count}">
-        <span class="material-icons" (click)="nextPage()">
-            keyboard_arrow_right
-        </span>
+    <div
+      class="box"
+      *ngIf="item - 1 !== 0 && currentPage === item"
+      (click)="prevPage()"
+    >
+      {{ item - 1 }}
     </div>
+    <div
+      class="box"
+      *ngIf="currentPage === item"
+      [ngClass]="{ selected: currentPage === item }"
+    >
+      {{ item }}
+    </div>
+    <div
+      class="box"
+      *ngIf="
+        currentPage === item && pagination.offset + 3 < pagination.total_count
+      "
+      (click)="nextPage()"
+    >
+      {{ item + 1 }}
+    </div>
+    <div
+      class="box"
+      *ngIf="
+        item - 1 === 0 &&
+        currentPage === item &&
+        pagination.offset + 3 < pagination.total_count
+      "
+      (click)="nextPage()"
+    >
+      {{ item + 2 }}
+    </div>
+  </ng-container>
+  <div
+    class="arrow"
+    [ngClass]="{ show: pagination.offset + 3 < pagination.total_count }"
+  >
+    <span class="material-icons" (click)="nextPage()">
+      keyboard_arrow_right
+    </span>
+  </div>
 </div>

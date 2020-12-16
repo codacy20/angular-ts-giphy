@@ -1,10 +1,10 @@
-import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GiphyService } from '../giphy.service';
+import { HttpClientModule } from "@angular/common/http";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { GiphyService } from "../giphy.service";
 
-import { PaginationComponent } from './pagination.component';
+import { PaginationComponent } from "./pagination.component";
 
-describe('PaginationComponent', () => {
+describe("PaginationComponent", () => {
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
 
@@ -12,9 +12,8 @@ describe('PaginationComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [PaginationComponent],
       imports: [HttpClientModule],
-      providers: [GiphyService]
-    })
-      .compileComponents();
+      providers: [GiphyService],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -23,7 +22,7 @@ describe('PaginationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

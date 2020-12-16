@@ -1,20 +1,20 @@
-import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core';
-import ImageModel from 'src/app/common/models/Image.model';
-import SearchResponseModel, { PaginationModel } from 'src/app/common/models/search-response.model';
-import { GiphyService } from '../giphy.service';
+import { Component, OnDestroy } from "@angular/core";
+import SearchResponseModel, {
+  PaginationModel,
+} from "src/app/common/models/search-response.model";
+import { GiphyService } from "../giphy.service";
 
 export enum Direction {
   forward = 3,
-  backward = -3
+  backward = -3,
 }
 
 @Component({
-  selector: 'app-pagination',
-  templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss']
+  selector: "app-pagination",
+  templateUrl: "./pagination.component.html",
+  styleUrls: ["./pagination.component.scss"],
 })
 export class PaginationComponent implements OnDestroy {
-
   response: SearchResponseModel;
   pagination: PaginationModel = { count: 0, offset: 0, total_count: 0 };
   input: string;
@@ -35,11 +35,13 @@ export class PaginationComponent implements OnDestroy {
   }
 
   changePage(direction: Direction) {
-    this.giphyService.getGiphyImages(this.input, 3, this.pagination.offset + direction).subscribe((response: SearchResponseModel) => {
-      this.giphyService.pagination.next(response.pagination);
-      this.giphyService.listImages = response.data;
-      this.giphyService.imageSearchResults.next();
-    });
+    this.giphyService
+      .getGiphyImages(this.input, 3, this.pagination.offset + direction)
+      .subscribe((response: SearchResponseModel) => {
+        this.giphyService.pagination.next(response.pagination);
+        this.giphyService.listImages = response.data;
+        this.giphyService.imageSearchResults.next();
+      });
   }
 
   prevPage() {
@@ -63,7 +65,9 @@ export class PaginationComponent implements OnDestroy {
   definePagination() {
     if (this.pagination.offset === 0) {
       this.availablePages = [];
-      for (let i = this.currentPage; i <= this.numPages(); i++) { this.availablePages.push(i); }
+      for (let i = this.currentPage; i <= this.numPages(); i++) {
+        this.availablePages.push(i);
+      }
     }
   }
 

@@ -1,16 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
 
-import { SearchLayoutComponent } from './search-layout/search-layout.component';
-import { RecentSearchesComponent } from './recent-searches/recent-searches.component';
-import { SearchResultComponent } from './search-result/search-result.component';
-import { SearchInputComponent } from './search-input/search-input.component';
-import { RouterModule } from '@angular/router';
-import { PaginationComponent } from './pagination/pagination.component';
-import { GiphyService } from './giphy.service';
-
+import { SearchLayoutComponent } from "./search-layout/search-layout.component";
+import { RecentSearchesComponent } from "./recent-searches/recent-searches.component";
+import { SearchResultComponent } from "./search-result/search-result.component";
+import { SearchInputComponent } from "./search-input/search-input.component";
+import { RouterModule } from "@angular/router";
+import { PaginationComponent } from "./pagination/pagination.component";
+import { GiphyService } from "./giphy.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { GiphyService } from './giphy.service';
     RecentSearchesComponent,
     SearchResultComponent,
     SearchInputComponent,
-    PaginationComponent
+    PaginationComponent,
   ],
   imports: [
     CommonModule,
@@ -26,11 +25,11 @@ import { GiphyService } from './giphy.service';
     ReactiveFormsModule,
     RouterModule.forChild([
       {
-        path: '',
-        component: SearchLayoutComponent
-      }
-    ])
+        path: "",
+        component: SearchLayoutComponent,
+      },
+    ]),
   ],
-  providers: [GiphyService]
+  providers: [GiphyService],
 })
-export class SearchModule { }
+export class SearchModule {}
