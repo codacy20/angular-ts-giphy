@@ -11,33 +11,8 @@ export class FixedWithImage {
 }
 
 export class ImageSpecification {
-    private _height: number;
-    private _width: number;
-    private _size: number;
-    private _webp: string;
-
-    public get height(): number {
-        return this._height;
-    }
-    public set height(value: number) {
-        this._height = value;
-    }
-    public get width(): number {
-        return this._width;
-    }
-    public set width(value: number) {
-        this._width = value;
-    }
-    public get size(): number {
-        return this._size;
-    }
-    public set size(value: number) {
-        this._size = value;
-    }
-    public get url(): string {
-        return this._webp;
-    }
-    public set url(value: string) {
-        this._webp = value;
-    }
+    height: number;
+    width: number;
+    size: number;
+    url: string;
 }

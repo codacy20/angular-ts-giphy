@@ -19,6 +19,10 @@ export class SearchResultComponent implements OnInit, OnDestroy {
     });
   }
 
+  navigate(url: string) {
+    window.open(url, '_blank');
+  }
+
   ngOnDestroy(): void {
     this.giphyService.imageSearchResults.unsubscribe();
   }

@@ -11,7 +11,7 @@ import { CensorSensor } from 'censor-sensor';
   templateUrl: './search-input.component.html',
   styleUrls: ['./search-input.component.scss']
 })
-export class SearchInputComponent implements OnInit, OnDestroy {
+export class SearchInputComponent implements OnInit {
 
   searchControl = new FormControl('');
   response: SearchResponseModel;
@@ -47,9 +47,5 @@ export class SearchInputComponent implements OnInit, OnDestroy {
       this.giphyService.imageSearchResults.next();
       this.giphyService.pagination.next(response.pagination);
     });
-  }
-
-  ngOnDestroy(): void {
-    this.giphyService.recentSearch.unsubscribe();
   }
 }

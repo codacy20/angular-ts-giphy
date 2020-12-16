@@ -1,5 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { PaginationComponent } from '../pagination/pagination.component';
+import { RecentSearchesComponent } from '../recent-searches/recent-searches.component';
+import { SearchInputComponent } from '../search-input/search-input.component';
+import { SearchResultComponent } from '../search-result/search-result.component';
 import { SearchLayoutComponent } from './search-layout.component';
 
 describe('SearchLayoutComponent', () => {
@@ -8,9 +12,16 @@ describe('SearchLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchLayoutComponent ]
+      imports: [HttpClientModule],
+      declarations: [
+        SearchLayoutComponent,
+        RecentSearchesComponent,
+        SearchInputComponent,
+        PaginationComponent,
+        SearchResultComponent,
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

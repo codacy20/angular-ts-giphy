@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { GiphyService } from '../giphy.service';
 
 import { PaginationComponent } from './pagination.component';
 
@@ -8,9 +10,11 @@ describe('PaginationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaginationComponent ]
+      declarations: [PaginationComponent],
+      imports: [HttpClientModule],
+      providers: [GiphyService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { GiphyService } from '../giphy.service';
 
 import { RecentSearchesComponent } from './recent-searches.component';
 
@@ -8,7 +10,9 @@ describe('RecentSearchesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecentSearchesComponent ]
+      declarations: [ RecentSearchesComponent ],
+      imports: [HttpClientModule],
+      providers: [GiphyService]
     })
     .compileComponents();
   });
