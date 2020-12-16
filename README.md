@@ -1,9 +1,11 @@
 # Angular Giphy app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+```
 Angular CLI: 10.2.0
 Node: 10.16.3
 OS: darwin x64
+```
 
 ## Installation
 
@@ -22,18 +24,18 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 # Architecture, Explanation and more
-To summries it, the application has a two very simple modules. the main module (application module) and Search feature module (lazy loaded). All Giphy search related features, components (5 components) are included in that module just to have at least a little bit of seperation of concerns.
+To summries it, the application has two very simple modules. the main module (application module) and Search feature module (lazy loaded). All Giphy search related features, components (5 components) are included in that module just to have at least a little bit of seperation of concerns.
 
 I work with two things in mind always. My code should be easy to change (future maintainblity) and I do not like to repeat (DRY).
 
 While working on this small project I tried showing that I care about clean readable maintainble extendable code. 
 
-I have used rxjs events mostly to reduce the size of the code and hopefully the functionality. I have used a "Layout" component to illustrate that it is possible to extend this arcitechture to adopt "Input/Output" communication between components as well as the Rxjs (event driven) approach.
+I have used rxjs events mostly to reduce the size of the code and hopefully the functionality. I have used a "Layout" component to illustrate that it is possible to extend this arcitechture and to adopt "Input/Output" communication between components as well as the Rxjs (event driven) approach.
 
 Data and events are managed in a single place (the Giphy Service) and it's considered to be the source of truth... it somewhat represents(mimics) NGRX data managemenet approach. Of course NGRX provides a much more comprehenvisve approach by having reducers, actions etc..
 
-## Short comings
-All said and done, I enjoyed working on it, I kept it simple. short and hope you forgive the short comings.
+## Possible improvemenets
+All said and done, I enjoyed working on it, I kept it simple, short and hope you forgive the short comings.
 
 The main issue in my opinion is lack of e2e/integeration testing. And it just requires time and deligance.
 
@@ -58,4 +60,5 @@ LinkedIn: https://www.linkedin.com/in/amirkiumarsi/
 
 ## Where can I see this projects code
 Code is hosted here: https://github.com/codacy20/angular-ts-giphy
+
 Application is deployed here: https://affectionate-curie-b2ffc8.netlify.app/
