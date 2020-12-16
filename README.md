@@ -58,4 +58,4 @@ LinkedIn: https://www.linkedin.com/in/amirkiumarsi/
 
 ## Where can I see this projects code
 Code is hosted here: https://github.com/codacy20/angular-ts-giphy
-Application is deployed here: 
+Application is deployed here: https://affectionate-curie-b2ffc8.netlify.app/
